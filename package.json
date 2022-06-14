@@ -1,0 +1,29 @@
+{
+  "name": "desktop-cgi-express",
+  "version": "1.0.0",
+  "description": "ExpressJS Server Bridge for Desktop-cgi",
+  "main": "./src/index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/desktop-cgi/express-bridge.git"
+  },
+  "keywords": [
+    "ExpressJS",
+    "Server",
+    "Brodge",
+    "for",
+    "Desktop-CGI"
+  ],
+  "author": "Ganesh K Bhat, Desktop-CGI",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/desktop-cgi/express-bridge/issues"
+  },
+  "homepage": "https://github.com/desktop-cgi/express-bridge#readme"
+}
