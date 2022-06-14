@@ -16,9 +16,11 @@
   "keywords": [
     "ExpressJS",
     "Server",
-    "Brodge",
-    "for",
-    "Desktop-CGI"
+    "Bridge",
+    "Desktop-CGI",
+    "Electron",
+    "Desktop Application",
+    "Bridge"
   ],
   "author": "Ganesh K Bhat, Desktop-CGI",
   "license": "MIT",
