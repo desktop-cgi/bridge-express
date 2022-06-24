@@ -1,11 +1,8 @@
 'use strict';
 
-const fs = require('fs');
-const url = require('url');
-const os = require("os");
 const path = require("path");
 
-module.exports = () => {
+module.exports = (dirname,  configurations, options) => {
     let pr = new Promise(function (resolve, reject) {
         try {
             // Load The FS Module & The Config File
@@ -14,33 +11,22 @@ module.exports = () => {
             // var bodyParser = require('body-parser');
             var app = express();
 
-            const cgifiles = require("./recursive-cgifiles");
-            const proxies = require("./recursive-proxies");
-            const processes = require("./recursive-processes");
+            const cgifiles = require("./modules_recursive/recursive-cgifiles");
+            const proxies = require("./modules_recursive/recursive-proxies");
+            const processes = require("./modules_recursive/recursive-processes");
 
-            const ostype = os.type();
-            let configurations;
-
-            if (ostype == "win32" || ostype === "Windows_NT") {
-                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-win_demo.json')));
-            } else if (ostype == "linux") {
-                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-linux_demo.json')));
-            } else if (ostype == "mac") {
-                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-mac_demo.json')));
-            }
-
-            processes().then(function(procs) {
+            // processes(dirname, configurations, options).then(function(procs) {
                 
-                proxies().then(function (proxyapp) {
+                proxies(dirname, configurations, options).then(function (proxyapp) {
 
-                    if (!!configurations.server.options.assets) {
-                        app.use('/assets', express.static(path.join(__dirname, "../", configurations.server.options.assets)))
+                    if (!!configurations.app.options.assets) {
+                        app.use('/assets', express.static(path.join(dirname, configurations.app.options.assets)))
                     }
-                    if (!!configurations.server.options.views) {
-                        app.set('views', path.join(__dirname, "../", configurations.server.options.views));
+                    if (!!configurations.app.options.views) {
+                        app.set('views', path.join(dirname, configurations.app.options.views));
                     }
-                    if (!!configurations.server.options.viewengine) {
-                        app.set('view engine', configurations.server.options.viewengine);
+                    if (!!configurations.app.options.viewengine) {
+                        app.set('view engine', configurations.app.options.viewengine);
                     }
     
                     for (let i = 0; i < proxyapp.length; i++) {
@@ -48,12 +34,12 @@ module.exports = () => {
                         app.use("/" + proxyapp[i].key, proxyapp[i].value);
                     }
     
-                    cgifiles().then(async function (cgifilesapp) {
+                    cgifiles(dirname, configurations, options).then(async function (cgifilesapp) {
                         // Check this again for use / all / specific method
-                        app.use("/cgifiles", cgifilesapp);
+                        app.use("/cgi", cgifilesapp);
     
                         if (configurations.server.app === "demo") {
-                            let demoapp = await require("./demoapproutes")();
+                            let demoapp = await require("./demoapproutes")(dirname, configurations);
                             app.use("/", demoapp.app);
                         } else {
                             app.get("/", function (req, res, next) {
@@ -62,18 +48,18 @@ module.exports = () => {
                         }
     
                         app.all("*", function (req, res, next) {
-                            res.send(`"Testing my server"`);
+                            res.send("Desktop-CGI-Express Bridge: " + req.path + " - /* path: Testing my server");
                         });
     
                         app.listen(configurations.server.port, configurations.server.host, function () {
-                            console.log(`Server listening at ` + configurations.server.port);
+                            console.log(`Desktop-CGI-Express Bridge: index.js: Server listening at ` + configurations.server.port);
                             resolve(app);
                         });
     
                     }.bind(app), function (err) {
                         reject(err);
                     }).catch(function (error) {
-                        console.log(error);
+                        console.log("Desktop-CGI-Express Bridge: index.js: Error - ", error);
                     });
     
                 }.bind(app), function (err) {
@@ -82,9 +68,9 @@ module.exports = () => {
                     reject(error);
                 });
 
-            }).catch(function(error) {
+            // }).catch(function(error) {
 
-            });
+            // });
 
         } catch (e) {
             reject(e);

@@ -1,8 +1,5 @@
 'use strict';
 
-
-const fs = require("fs");
-const path = require("path");
 const express = require("express");
 const cgijs = require("cgijs");
 let cUtils = cgijs.utils();
@@ -10,23 +7,14 @@ let cUtils = cgijs.utils();
 // Basic Docs
 // https://www.npmjs.com/package/http-proxy
 
-module.exports = () => {
+module.exports = (dirname,  configurations, options) => {
     let pr = new Promise(function (resolve, reject) {
-        const ostype = cUtils.os.get();
-        let configurations;
-
-        if (ostype == "win32" || ostype === "Windows_NT") {
-            configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-win_demo.json')));
-        } else if (ostype == "linux") {
-            configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-linux_demo.json')));
-        } else if (ostype == "mac") {
-            configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-mac_demo.json')));
-        }
-
         let configs = configurations.proxies;
         let configKeys = Object.keys(configs);
         let confLen = configKeys.length;
         let app = [];
+        let processes = require("../modules_processes");
+
         try {
             for (let i = 0; i < confLen; i++) {
                 
@@ -34,14 +22,13 @@ module.exports = () => {
                 if (proxyType === "http" || proxyType === "https" || proxyType === "web") {
                     app.push({
                         "key": configKeys[i],
-                        "value": require("./processes/proxy-http")(configKeys[i], configs[configKeys[i]]).app
+                        "value": processes.proxyhttp(configKeys[i], configs[configKeys[i]]).app
                     });
                 } else if (proxyType === "ws") {
                     app.push({
                         "key": configKeys[i],
-                        "value": require("./processes/proxy-ws")(configKeys[i], configs[configKeys[i]]).app
+                        "value": processes.proxyws(configKeys[i], configs[configKeys[i]]).app
                     });
-                    // app = require("./processes/proxy-ws")(configKeys[i], configs[configKeys[i]]);
                 } else if (proxyType === "udp") {
 
                 } else if (proxyType === "tcp") {
@@ -52,9 +39,10 @@ module.exports = () => {
 
                 }
             }
+            
             resolve(app);
         } catch (e) {
-            console.log("Error occured in proxy recursive ", e.toString());
+            console.log("Desktop-CGI-Express Bridge: recursive-proxies.js: Error occured in proxy recursive ", e.toString());
             reject({ error: e });
         }
     });

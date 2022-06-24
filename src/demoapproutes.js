@@ -1,9 +1,7 @@
 
 'use strict';
 
-const fs = require('fs');
 const url = require('url');
-const os = require("os");
 const path = require("path");
 const express = require("express");
 const cgijs = require("cgijs");
@@ -13,28 +11,19 @@ let cUtils = cgijs.utils();
 // https://www.npmjs.com/package/http-proxy
 
 
-module.exports = () => {
+module.exports = (dirname,  configurations, options) => {
     let pr = new Promise(function (resolve, reject) {
         const ostype = cUtils.os.get();
-        let configurations;
         let app = express();
 
-        if (ostype == "win32" || ostype === "Windows_NT") {
-            configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-win_demo.json')));
-        } else if (ostype == "linux") {
-            configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-linux_demo.json')));
-        } else if (ostype == "mac") {
-            configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-mac_demo.json')));
+        if (!!configurations.app.options.assets) {
+            app.use('/assets', express.static(path.join(dirname, configurations.app.options.assets)))
         }
-
-        if (!!configurations.server.options.assets) {
-            app.use('/assets', express.static(path.join(__dirname, "../", configurations.server.options.assets)))
+        if (!!configurations.app.options.views) {
+            app.set('views', path.join(dirname, configurations.app.options.views));
         }
-        if (!!configurations.server.options.views) {
-            app.set('views', path.join(__dirname, "../", configurations.server.options.views));
-        }
-        if (!!configurations.server.options.viewengine) {
-            app.set('view engine', configurations.server.options.viewengine);
+        if (!!configurations.app.options.viewengine) {
+            app.set('view engine', configurations.app.options.viewengine);
         }
 
         app.get("/monitor/app", function (req, res) {
@@ -60,22 +49,30 @@ module.exports = () => {
                     label: cgilinks[cgikeys[i]].label ? cgilinks[cgikeys[i]].label.toUpperCase() : cgikeys[i].toUpperCase(),
                     identity: cgilinks[cgikeys[i]].identity,
                     link: cgilinks[cgikeys[i]].path,
-                    language: cgilinks[cgikeys[i]].lang_type,
-                    host: cgilinks[cgikeys[i]].host,
-                    host: cgilinks[cgikeys[i]].port
+                    language: cgilinks[cgikeys[i]].script_lang_type,
+                    host: cgilinks[cgikeys[i]].script_server.host,
+                    port: cgilinks[cgikeys[i]].script_server.port
                 });
             }
             res.render(path.join('language'), { data: { language: queryObject.language, links: links } });
+        });
+
+        app.get("/err", function(req, res, next) {
+            res.render(path.join('error'));
         });
 
         app.get("/", function (req, res, next) {
             res.render(path.join('index'));
         });
 
+        app.all("*", function (req, res, next) {
+            res.render(path.join('index'));
+        });
+
         try {
             resolve({ app: app });
         } catch (e) {
-            console.log("Error occured in files recursive ", e.toString());
+            console.log("Desktop-CGI-Express Bridge: demoapproutes.js: Error occured in files recursive ", e.toString());
             reject({ error: e });
         }
     });

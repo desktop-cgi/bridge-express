@@ -1,16 +1,14 @@
 'use strict';
 
-const fs = require('fs');
 const express = require('express');
 const cgijs = require("cgijs");
 const path = require("path");
 const url = require("url");
 let cUtils = cgijs.utils();
 
-module.exports = () => {
+module.exports = (dirname,  configurations, options) => {
     let pr = new Promise(function (resolve, reject) {
         try {
-            let ostype = cUtils.os.get();
 
             function response(type, exeOptions) {
                 let cgi = cgijs.init();
@@ -36,16 +34,6 @@ module.exports = () => {
             }
 
             var app = express();
-            let configurations;
-
-            if (ostype == "win32" || ostype === "Windows_NT") {
-                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-win_demo.json')));
-            } else if (ostype == "linux") {
-                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-linux_demo.json')));
-            } else if (ostype == "mac") {
-                configurations = JSON.parse(fs.readFileSync(path.join(__dirname, "../", '/www/configs/config-mac_demo.json')));
-            }
-
             let cgifiles = Object.keys(configurations.cgifiles);
 
             for (let i = 0; i < cgifiles.length; i++) {
@@ -54,14 +42,14 @@ module.exports = () => {
                 app.use(
                     inst.path,
                     response(
-                        inst.type,
+                        inst.script_lang_type,
                         {
-                            web_root_folder: inst.web_root_folder,
-                            bin: inst.bin,
-                            config_path: inst.config_path,
-                            host: inst.host,
-                            port: inst.port,
-                            cmd_options: inst.cmd_options
+                            web_root_folder: path.join(dirname, inst.script_web_root_folder),
+                            bin: path.join(dirname, (typeof inst.embed_bin === "string") ? inst.embed_bin : inst.embed_bin.bin_path),
+                            config_path: (!!inst.embed_config.file) ? inst.embed_config.file : inst.embed_config.file,
+                            host: inst.script_server.host,
+                            port: inst.script_server.port,
+                            cmd_options: inst.script_cmd_options
                         }
                     )
                 );
