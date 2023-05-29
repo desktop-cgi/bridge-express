@@ -1,0 +1,269 @@
+{
+    "server": {
+        "host": "localhost",
+        "port": 3001,
+        "app": "demo",
+        "redirect_home": "/proxyone"
+    },
+    "session": {
+        "secret": "1234567890"
+    },
+    "app": {
+        "temp": "/tmp",
+        "cache": "/data/cache",
+        "downloads": "/downloads",
+        "userData": "/data/user",
+        "logs": "/data/logs",
+        "recent": "/data/recent",
+        "crashDump": "/data/crash",
+        "appData": "/data/app",
+        "binaries": "/binaries",
+        "processes_folder": "/server/processes",
+        "electron_folder": "/server/native",
+        "config_folder": "/www/configs",
+        "options": {
+            "viewengine": "ejs",
+            "views": "/www/demoapp/node-templates",
+            "assets": "/www/demoapp/ui/assets"
+        }
+    },
+    "processes": {
+        "jspath": {
+            "type": "nginx"
+        }
+    },
+    "proxies": {
+        "proxyone": {
+            "type": "http",
+            "options": {
+                "target": {
+                    "protocol": "http:",
+                    "host": "127.0.0.1",
+                    "port": 9001,
+                    "pfx": null,
+                    "passphrase": ""
+                },
+                "ws": false,
+                "secure": false,
+                "ssl": {
+                    "key": "",
+                    "cert": ""
+                },
+                "xfwd": true,
+                "toProxy": true,
+                "prependPath": true,
+                "ignorePath": false,
+                "changeOrigin": false,
+                "preserveHeaderKeyCase": true,
+                "auth": ":",
+                "hostRewrite": true,
+                "protocolRewrite": null,
+                "cookieDomainRewrite": false,
+                "cookiePathRewrite": false,
+                "headers": {},
+                "proxyTimeout": 10000,
+                "timeout": 10000,
+                "selfHandleResponse": false,
+                "buffer": null
+            },
+            "listenPort": 8001,
+            "stream": false,
+            "modify": false,
+            "runtime": false
+        }
+    },
+    "cgifiles": {
+        "wordpress": {
+            "label": "PHP Wordpress",
+            "identity": "phpwordpress",
+            "path": "/wp",
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
+        },
+        "ecommerce": {
+            "label": "PHP eCommerce",
+            "identity": "phpecommerce",
+            "path": "/ecom",
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
+        },
+        "phprestapi": {
+            "label": "Rest API",
+            "identity": "phprestapi",
+            "path": "/phprest",
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
+        },
+        "drupal": {
+            "label": "Drupal",
+            "identity": "phpdrupal",
+            "path": "/drupal",
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
+        },
+        "phpinfo": {
+            "label": "PHP File Demo One",
+            "identity": "phpinfo",
+            "path": "/phpinfo/info",
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
+        },
+        "phpappone": {
+            "label": "PHP File Demo Two",
+            "identity": "filedemo",
+            "path": "/phpc",
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
+        },
+        "phpapptwo": {
+            "label": "PHP App Two",
+            "identity": "",
+            "path": "/phpp",
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
+        },
+        "phpappthree": {
+            "label": "PHP App Three",
+            "identity": "",
+            "path": "/phppp",
+            "embed_bin": "./binaries/lang-php/win",
+            "embed_config": {
+                "file": ""
+            },
+            "embed_options": {},
+            "script_type": "",
+            "script_lang_type": "php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "script_cmd_options": {},
+            "script_server": {
+                "host": "localhost",
+                "port": 3001,
+                "username": "",
+                "password": "",
+                "ssl": {
+                    "crt": "",
+                    "pem": ""
+                }
+            }
+        }
+    }
+}

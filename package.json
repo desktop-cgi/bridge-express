@@ -1,7 +1,7 @@
 {
   "name": "desktopcgi-express-bridge",
-  "version": "0.0.3",
-  "description": "ExpressJS Server Bridge for Desktop-cgi",
+  "version": "0.0.1",
+  "description": "Express based bridge for Desktop-CGI application serving. Serves files, proxy, manages processes, and manages concurrency",
   "main": "index.js",
   "directories": {
     "test": "tests"
@@ -33,10 +33,7 @@
     "ws": "^8.13.0"
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.1.1",
     "chai": "4.3.7",
-    "dmg-license": "^1.0.11",
-    "grunt-electron": "^12.0.0",
     "unimported": "^1.28.0",
     "eslint": "8.11.0",
     "mocha": "9.2.2",

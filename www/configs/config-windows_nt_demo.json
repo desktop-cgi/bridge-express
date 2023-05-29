@@ -1,0 +1,149 @@
+{
+    "server": {
+        "app": "demo",
+        "loader": "server",
+        "file": "",
+        "protocol": "http",
+        "host": "localhost",
+        "port": 3001,
+        "ssl": {
+            "crt": "",
+            "pem": ""
+        },
+        "redirect_home": "/proxyone",
+        "demos": {
+            "cgifiles": true,
+            "proxies": true,
+            "processes": true
+        }
+    },
+    "session": {
+        "secret": "1234567890"
+    },
+    "app": {
+        "basePath": "C:\\Users\\GB\\Documents\\projects\\allprojects\\desktopcgi\\desktop-cgi",
+        "temp": "/tmp",
+        "cache": "/data/cache",
+        "downloads": "/downloads",
+        "userData": "/data/user",
+        "logs": "/data/logs",
+        "recent": "/data/recent",
+        "crashDump": "/data/crash",
+        "appData": "/data/app",
+        "binaries": "/binaries",
+        "config_folder": "/www/configs",
+        "framework": "electron",
+        "frameworkBridge": "express",
+        "menus": "/src/native/electron_menu",
+        "allowRendererProcessReuse": true,
+        "ignoreCertificateErrors": false,
+        "disableHardwareAcceleration": false,
+        "allowInsecureLocalhost": false,
+        "appRoot": "",
+        "tray": true,
+        "trayIcon": "/www/demoapp/assets/electron.svg",
+        "trayTooltip": "DesktopCGI",
+        "options": {
+            "viewengine": "ejs",
+            "views": "/www/demoapp/node-templates",
+            "assets": "/www/demoapp/ui/assets"
+        }
+    },
+    "processes": {
+        "jspath": {
+            "type": "nginx"
+        }
+    },
+    "proxies": {
+        "proxyone": {
+            "type": "http",
+            "options": {
+                "target": {
+                    "protocol": "http:",
+                    "host": "127.0.0.1",
+                    "port": 9001,
+                    "pfx": null,
+                    "passphrase": ""
+                },
+                "ws": false,
+                "secure": false,
+                "ssl": {
+                    "key": "",
+                    "cert": ""
+                },
+                "xfwd": true,
+                "toProxy": true,
+                "prependPath": true,
+                "ignorePath": false,
+                "changeOrigin": false,
+                "preserveHeaderKeyCase": true,
+                "auth": ":",
+                "hostRewrite": true,
+                "protocolRewrite": null,
+                "cookieDomainRewrite": false,
+                "cookiePathRewrite": false,
+                "headers": {},
+                "proxyTimeout": 10000,
+                "timeout": 10000,
+                "selfHandleResponse": false,
+                "buffer": null
+            },
+            "listenPort": 8001,
+            "stream": false,
+            "modify": false,
+            "runtime": false
+        }
+    },
+    "cgifiles": {
+        "phpinfo": {
+            "label": "PHP File Demo One",
+            "identity": "phpinfo",
+            "path": "/phpinfo/info",
+            "lang_type": "php",
+            "basePath": "C:\\Users\\GB\\Documents\\projects\\desktopcgi\\desktop-cgi-application",
+            "web_root_folder": "./www/php",
+            "script_web_root_folder": "./www/php",
+            "embed": {
+                "path": "C:\\Users\\ganes\\OneDrive\\Documents\\projects\\github\\workspace-cgi\\packages\\cgi-js\\",
+                "bin": "",
+                "bin--AlternateUsage": {
+                    "bin_path": "",
+                    "useDefault": false
+                },
+                "config": {
+                    "argument": "-c",
+                    "seperator": " ",
+                    "file": ""
+                },
+                "options": {
+                    "-c": {
+                        "seperator": " ",
+                        "value": ""
+                    }
+                }
+            },
+            "script": {
+                "type": "file",
+                "file": "info.php",
+                "path": "./www/files/php",
+                "server": {
+                    "host": "localhost",
+                    "port": 3001,
+                    "username": "",
+                    "password": "",
+                    "ssl": {
+                        "crt": "",
+                        "pem": ""
+                    }
+                },
+                "options": "-d expose_php=off",
+                "seperator": " "
+            }
+        }
+    },
+    "loggers": {
+        "default": {},
+        "file": {},
+        "https": {}
+    }
+}

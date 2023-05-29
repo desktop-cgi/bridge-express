@@ -1,0 +1,364 @@
+{
+    "cgifiles": {
+        "wordpress": {
+            "label": "PHP Wordpress",
+            "identity": "phpwordpress",
+            "path": "/info",
+            "lang_type": "php",
+            "basePath": "C:\\Users\\ganes\\OneDrive\\Documents\\projects\\allprojects\\desktopcgi\\bridge-express",
+            "web_root_folder": "./www/demoapp/files/php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "embed": {
+                "path": "C:\\Users\\ganes\\OneDrive\\Documents\\binaries\\php\\",
+                "bin": "",
+                "bin--AlternateUsage": {
+                    "bin_path": "",
+                    "useDefault": false
+                },
+                "config": {
+                    "argument": "-c",
+                    "seperator": " ",
+                    "file": ""
+                },
+                "options": {
+                    "-c": {
+                        "seperator": " ",
+                        "value": ""
+                    }
+                }
+            },
+            "script": {
+                "type": "file",
+                "file": "info.php",
+                "path": "./www/demoapp/files/php",
+                "server": {
+                    "host": "localhost",
+                    "port": 3001,
+                    "username": "",
+                    "password": "",
+                    "ssl": {
+                        "crt": "",
+                        "pem": ""
+                    }
+                },
+                "options": "-d expose_php=off",
+                "seperator": " "
+            }
+        },
+        "ecommerce": {
+            "label": "PHP eCommerce",
+            "identity": "phpecommerce",
+            "path": "/ecom",
+            "lang_type": "php",
+            "basePath": "C:\\Users\\ganes\\OneDrive\\Documents\\projects\\allprojects\\desktopcgi\\bridge-express",
+            "web_root_folder": "./www/demoapp/files/php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "embed": {
+                "path": "C:\\Users\\ganes\\OneDrive\\Documents\\binaries\\php\\",
+                "bin": "",
+                "bin--AlternateUsage": {
+                    "bin_path": "",
+                    "useDefault": false
+                },
+                "config": {
+                    "argument": "-c",
+                    "seperator": " ",
+                    "file": ""
+                },
+                "options": {
+                    "-c": {
+                        "seperator": " ",
+                        "value": ""
+                    }
+                }
+            },
+            "script": {
+                "type": "file",
+                "file": "info.php",
+                "path": "./www/demoapp/files/php",
+                "server": {
+                    "host": "localhost",
+                    "port": 3001,
+                    "username": "",
+                    "password": "",
+                    "ssl": {
+                        "crt": "",
+                        "pem": ""
+                    }
+                },
+                "options": "-d expose_php=off",
+                "seperator": " "
+            }
+        },
+        "phprestapi": {
+            "label": "Rest API",
+            "identity": "phprestapi",
+            "path": "/phprest",
+            "lang_type": "php",
+            "basePath": "C:\\Users\\ganes\\OneDrive\\Documents\\projects\\allprojects\\desktopcgi\\bridge-express",
+            "web_root_folder": "./www/demoapp/files/php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "embed": {
+                "path": "C:\\Users\\ganes\\OneDrive\\Documents\\binaries\\php\\",
+                "bin": "",
+                "bin--AlternateUsage": {
+                    "bin_path": "",
+                    "useDefault": false
+                },
+                "config": {
+                    "argument": "-c",
+                    "seperator": " ",
+                    "file": ""
+                },
+                "options": {
+                    "-c": {
+                        "seperator": " ",
+                        "value": ""
+                    }
+                }
+            },
+            "script": {
+                "type": "file",
+                "file": "info.php",
+                "path": "./www/demoapp/files/php",
+                "server": {
+                    "host": "localhost",
+                    "port": 3001,
+                    "username": "",
+                    "password": "",
+                    "ssl": {
+                        "crt": "",
+                        "pem": ""
+                    }
+                },
+                "options": "-d expose_php=off",
+                "seperator": " "
+            }
+        },
+        "drupal": {
+            "label": "Drupal",
+            "identity": "phpdrupal",
+            "path": "/drupal",
+            "lang_type": "php",
+            "basePath": "C:\\Users\\ganes\\OneDrive\\Documents\\projects\\allprojects\\desktopcgi\\bridge-express",
+            "web_root_folder": "./www/demoapp/files/php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "embed": {
+                "path": "C:\\Users\\ganes\\OneDrive\\Documents\\binaries\\php\\",
+                "bin": "",
+                "bin--AlternateUsage": {
+                    "bin_path": "",
+                    "useDefault": false
+                },
+                "config": {
+                    "argument": "-c",
+                    "seperator": " ",
+                    "file": ""
+                },
+                "options": {
+                    "-c": {
+                        "seperator": " ",
+                        "value": ""
+                    }
+                }
+            },
+            "script": {
+                "type": "file",
+                "file": "info.php",
+                "path": "./www/demoapp/files/php",
+                "server": {
+                    "host": "localhost",
+                    "port": 3001,
+                    "username": "",
+                    "password": "",
+                    "ssl": {
+                        "crt": "",
+                        "pem": ""
+                    }
+                },
+                "options": "-d expose_php=off",
+                "seperator": " "
+            }
+        },
+        "phpinfo": {
+            "label": "PHP File Demo One",
+            "identity": "phpinfo",
+            "path": "/phpinfo/info",
+            "lang_type": "php",
+            "basePath": "C:\\Users\\ganes\\OneDrive\\Documents\\projects\\allprojects\\desktopcgi\\bridge-express",
+            "web_root_folder": "./www/demoapp/files/php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "embed": {
+                "path": "C:\\Users\\ganes\\OneDrive\\Documents\\binaries\\php\\",
+                "bin": "",
+                "bin--AlternateUsage": {
+                    "bin_path": "",
+                    "useDefault": false
+                },
+                "config": {
+                    "argument": "-c",
+                    "seperator": " ",
+                    "file": ""
+                },
+                "options": {
+                    "-c": {
+                        "seperator": " ",
+                        "value": ""
+                    }
+                }
+            },
+            "script": {
+                "type": "file",
+                "file": "info.php",
+                "path": "./www/demoapp/files/php",
+                "server": {
+                    "host": "localhost",
+                    "port": 3001,
+                    "username": "",
+                    "password": "",
+                    "ssl": {
+                        "crt": "",
+                        "pem": ""
+                    }
+                },
+                "options": "-d expose_php=off",
+                "seperator": " "
+            }
+        },
+        "phpappone": {
+            "label": "PHP File Demo Two",
+            "identity": "filedemo",
+            "path": "/phpc",
+            "lang_type": "php",
+            "basePath": "C:\\Users\\ganes\\OneDrive\\Documents\\projects\\allprojects\\desktopcgi\\bridge-express",
+            "web_root_folder": "./www/demoapp/files/php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "embed": {
+                "path": "C:\\Users\\ganes\\OneDrive\\Documents\\binaries\\php\\",
+                "bin": "",
+                "bin--AlternateUsage": {
+                    "bin_path": "",
+                    "useDefault": false
+                },
+                "config": {
+                    "argument": "-c",
+                    "seperator": " ",
+                    "file": ""
+                },
+                "options": {
+                    "-c": {
+                        "seperator": " ",
+                        "value": ""
+                    }
+                }
+            },
+            "script": {
+                "type": "file",
+                "file": "info.php",
+                "path": "./www/demoapp/files/php",
+                "server": {
+                    "host": "localhost",
+                    "port": 3001,
+                    "username": "",
+                    "password": "",
+                    "ssl": {
+                        "crt": "",
+                        "pem": ""
+                    }
+                },
+                "options": "-d expose_php=off",
+                "seperator": " "
+            }
+        },
+        "phpapptwo": {
+            "label": "PHP App Two",
+            "identity": "",
+            "path": "/phpp",
+            "lang_type": "php",
+            "basePath": "C:\\Users\\ganes\\OneDrive\\Documents\\projects\\allprojects\\desktopcgi\\bridge-express",
+            "web_root_folder": "./www/demoapp/files/php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "embed": {
+                "path": "C:\\Users\\ganes\\OneDrive\\Documents\\binaries\\php\\",
+                "bin": "",
+                "bin--AlternateUsage": {
+                    "bin_path": "",
+                    "useDefault": false
+                },
+                "config": {
+                    "argument": "-c",
+                    "seperator": " ",
+                    "file": ""
+                },
+                "options": {
+                    "-c": {
+                        "seperator": " ",
+                        "value": ""
+                    }
+                }
+            },
+            "script": {
+                "type": "file",
+                "file": "info.php",
+                "path": "./www/demoapp/files/php",
+                "server": {
+                    "host": "localhost",
+                    "port": 3001,
+                    "username": "",
+                    "password": "",
+                    "ssl": {
+                        "crt": "",
+                        "pem": ""
+                    }
+                },
+                "options": "-d expose_php=off",
+                "seperator": " "
+            }
+        },
+        "phpappthree": {
+            "label": "PHP App Three",
+            "identity": "",
+            "path": "/phppp",
+            "lang_type": "php",
+            "basePath": "C:\\Users\\ganes\\OneDrive\\Documents\\projects\\allprojects\\desktopcgi\\bridge-express",
+            "web_root_folder": "./www/demoapp/files/php",
+            "script_web_root_folder": "./www/demoapp/files/php",
+            "embed": {
+                "path": "C:\\Users\\ganes\\OneDrive\\Documents\\binaries\\php\\",
+                "bin": "",
+                "bin--AlternateUsage": {
+                    "bin_path": "",
+                    "useDefault": false
+                },
+                "config": {
+                    "argument": "-c",
+                    "seperator": " ",
+                    "file": ""
+                },
+                "options": {
+                    "-c": {
+                        "seperator": " ",
+                        "value": ""
+                    }
+                }
+            },
+            "script": {
+                "type": "file",
+                "file": "info.php",
+                "path": "./www/demoapp/files/php",
+                "server": {
+                    "host": "localhost",
+                    "port": 3001,
+                    "username": "",
+                    "password": "",
+                    "ssl": {
+                        "crt": "",
+                        "pem": ""
+                    }
+                },
+                "options": "-d expose_php=off",
+                "seperator": " "
+            }
+        }
+    }
+}

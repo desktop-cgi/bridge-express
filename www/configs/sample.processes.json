@@ -1,0 +1,48 @@
+{
+    "processes": {
+        "nginx": "./sample.nginx.json",
+        "express": "",
+        "mysql": {
+            "name": "mysql",
+            "type": "executable",
+            "os": "",
+            "exe": "",
+            "cmds": {
+                "start": {
+                    "exe": "",
+                    "usage": "start",
+                    "args": []
+                },
+                "stop": {
+                    "exe": "",
+                    "usage": "stop",
+                    "args": []
+                },
+                "restart": {
+                    "exe": "",
+                    "usage": "restart",
+                    "args": []
+                },
+                "generic": {
+                    "exe": "",
+                    "usage": "",
+                    "args": []
+                }
+            },
+            "options": {
+                "stdio": "inherit",
+                "shell": true
+            },
+            "other": {
+                "paths": {
+                    "conf": "",
+                    "exe": ""
+                },
+                "env": "",
+                "setprocess": false,
+                "executetype": "spawn",
+                "command": "start"
+            }
+        }
+    }
+}

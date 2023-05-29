@@ -1,3 +1,21 @@
+/**
+ * 
+ * Package: 
+ * Author: Ganesh B
+ * Description: Nodejs npm module to Express based bridge for Desktop-CGI application serving. Serves files, proxy, manages processes, and manages concurrency
+ * Install: npm i  --save
+ * Github: https://github.com/ganeshkbhat/
+ * npmjs Link: https://www.npmjs.com/package/
+ * File: .js
+ * File Description: Tests for 
+ * 
+ * 
+*/
+
+/* eslint no-console: 0 */
+
+'use strict';
+
 
 var expect = require('chai').expect;
 
