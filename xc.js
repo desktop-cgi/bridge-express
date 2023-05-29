@@ -12,6 +12,7 @@ cnf.name = "filename";
 cnf.cmds.run.exe = "node";
 cnf.os = require("os").type();
 
+
 let processConf = config;
 // // STEP 2: Start the process as a seperate thread
 // if (!!processConf.path) {

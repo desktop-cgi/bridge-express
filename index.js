@@ -19,10 +19,29 @@
 
 // async function genCgiRoutes() {
 //     let cgifiles = require("./src/recursive/cgifiles");
-//     return await cgifiles(__dirname, { cgifiles: require("./www/configs/cgifiles.json") }, {});
+//     return await cgifiles(__dirname, { cgifiles: require("./www/configs/sample-cgifiles.json") }, {});
 // }
 
 // genCgiRoutes().then(function (app) {
 //     app.listen(8000, "127.0.0.1");
+// }.bind()).catch((e) => console.log(e));
+
+
+async function genProxyRoutes() {
+    let proxies = require("./src/recursive/proxies");
+    return await proxies(__dirname, { proxies: require("./www/configs/sample-proxies.json") }, {});
+}
+
+genProxyRoutes().then(function (app) {
+    app.listen(8001, "127.0.0.1");
+}.bind()).catch((e) => console.log(e));
+
+// async function genProcessesRoutes() {
+//     let processes = require("./src/recursive/processes");
+//     return await processes(__dirname, { proxies: require("./www/configs/sample-processes.json") }, {});
+// }
+
+// genProcessesRoutes().then(function (procs) {
+    
 // }.bind()).catch((e) => console.log(e));
 

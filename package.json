@@ -1,7 +1,7 @@
 {
   "name": "desktopcgi-bridge-express",
-  "version": "0.0.1",
-  "description": "Express based bridge for Desktop-CGI application serving. Serves files, proxy, manages processes, and manages concurrency",
+  "version": "0.0.2",
+  "description": "ExpressJS based bridge for serving apps for Desktop-CGI for any base electron, wails, tauri. Express based bridge for Desktop-CGI application serving. Serves files, proxy, manages processes, and manages concurrency",
   "main": "index.js",
   "directories": {
     "test": "tests"
