@@ -88,6 +88,7 @@
                 "selfHandleResponse": false,
                 "buffer": null
             },
+            "host": "127.0.0.1",
             "listenPort": 8001,
             "stream": false,
             "modify": false,

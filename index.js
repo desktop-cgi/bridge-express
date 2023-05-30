@@ -29,12 +29,14 @@
 
 async function genProxyRoutes() {
     let proxies = require("./src/recursive/proxies");
-    return await proxies(__dirname, { proxies: require("./www/configs/sample-proxies.json") }, {});
+    return await proxies(__dirname, { ...require("./www/configs/sample.proxies.json") }, {});
 }
 
 genProxyRoutes().then(function (app) {
-    app.listen(8001, "127.0.0.1");
+    console.log(app);
+    // app.listen(7001, "127.0.0.1");
 }.bind()).catch((e) => console.log(e));
+
 
 // async function genProcessesRoutes() {
 //     let processes = require("./src/recursive/processes");
@@ -42,6 +44,6 @@ genProxyRoutes().then(function (app) {
 // }
 
 // genProcessesRoutes().then(function (procs) {
-    
+//
 // }.bind()).catch((e) => console.log(e));
 

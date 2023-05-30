@@ -32,6 +32,7 @@ module.exports = (dirname, configurations, options, data = {}) => {
         let confLen = configKeys.length;
         let app = [];
         let processes = require("../processes");
+        console.log(configs, configKeys, confLen, processes);
 
         try {
             for (let i = 0; i < confLen; i++) {
