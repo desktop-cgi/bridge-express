@@ -16,16 +16,7 @@
 
 'use strict';
 
-/**
- * Process script
- * 
- * Start Process script using config file or file
- * [TODO] Check alternatives of Code
- * 
- */
 
-
-'use strict';
 
 const os = require("os");
 const fs = require("fs");

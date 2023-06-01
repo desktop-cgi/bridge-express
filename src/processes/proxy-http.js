@@ -27,8 +27,6 @@
  */
 
 
-'use strict';
-
 module.exports = function (name, config) {
     const cgijs = require("cgijs");
     const express = require("express");
