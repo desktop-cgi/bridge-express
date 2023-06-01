@@ -26,9 +26,7 @@
  */
 
 
-'use strict';
-
-let arg = process.argv
+let arg = process.argv;
 let tArg = arg[2], cArg = arg[3];
 
 switch (tArg) {
