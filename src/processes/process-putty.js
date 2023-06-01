@@ -20,9 +20,9 @@ module.exports = function (config) {
     let app;
     try {
         app = require("./base")(config);
-        return { app: app };
+        return { ...app };
     } catch (e) {
-        console.log("Error occured in proxy recursive ", e.toString())
+        console.log("Error occured in process recursive ", e.toString(), config);
         return { error: e };
     }
 }
