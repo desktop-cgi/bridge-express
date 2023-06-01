@@ -21,9 +21,17 @@ module.exports = {
     "base": require("./base"),
     // "process": require("./process"),
     "proxyftp": require("./proxy-ftp"),
+    "proxyftp": require("./proxy-sftp"),
     "proxyhttp": require("./proxy-http"),
+    "proxyhttp": require("./proxy-https"),
+    "proxyhttp": require("./proxy-httphttps"),
+    "proxyws": require("./proxy-ws"),
     "proxyssh": require("./proxy-ssh"),
     "proxytcp": require("./proxy-tcp"),
+    "proxytcp": require("./proxy-tls"),
     "proxyudp": require("./proxy-udp"),
-    "proxyws": require("./proxy-ws")
+    "proxyws": require("./proxy-socket"),
+    "proxyws": require("./proxy-socksv3"),
+    "proxyws": require("./proxy-socksv4"),
+    "proxyws": require("./proxy-socksv5")
 }

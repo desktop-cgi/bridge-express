@@ -34,7 +34,6 @@ async function genProxyRoutes() {
 
 genProxyRoutes().then(function (app) {
     console.log(app);
-    // app.listen(7001, "127.0.0.1");
 }.bind()).catch((e) => console.log(e));
 
 

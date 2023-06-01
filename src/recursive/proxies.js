@@ -38,23 +38,84 @@ module.exports = (dirname, configurations, options, data = {}) => {
             for (let i = 0; i < confLen; i++) {
                 let proxyType = configs[configKeys[i]].type;
                 if (proxyType === "http" || proxyType === "https" || proxyType === "web") {
+                    let srv = processes.proxyhttp(configKeys[i], configs[configKeys[i]]).app;
                     app.push({
                         "key": configKeys[i],
-                        "value": processes.proxyhttp(configKeys[i], configs[configKeys[i]]).app
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
                     });
+                } else if (proxyType === "httphttps") {
+                    
                 } else if (proxyType === "ws") {
+                    let srv = processes.proxyws(configKeys[i], configs[configKeys[i]]).app;
                     app.push({
                         "key": configKeys[i],
-                        "value": processes.proxyws(configKeys[i], configs[configKeys[i]]).app
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
                     });
                 } else if (proxyType === "udp") {
-
+                    let srv = processes.proxyudp(configKeys[i], configs[configKeys[i]]).app;
+                    app.push({
+                        "key": configKeys[i],
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
+                    });
                 } else if (proxyType === "tcp") {
-
+                    let srv = processes.proxytcp(configKeys[i], configs[configKeys[i]]).app;
+                    app.push({
+                        "key": configKeys[i],
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
+                    });
+                } else if (proxyType === "socket") {
+                    let srv = processes.proxysocket(configKeys[i], configs[configKeys[i]]).app;
+                    app.push({
+                        "key": configKeys[i],
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
+                    });
+                } else if (proxyType === "socksv3") {
+                    let srv = processes.proxysocksv3(configKeys[i], configs[configKeys[i]]).app;
+                    app.push({
+                        "key": configKeys[i],
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
+                    });
+                } else if (proxyType === "socksv4") {
+                    let srv = processes.proxysocksv4(configKeys[i], configs[configKeys[i]]).app;
+                    app.push({
+                        "key": configKeys[i],
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
+                    });
+                } else if (proxyType === "socksv5") {
+                    let srv = processes.proxysocksv5(configKeys[i], configs[configKeys[i]]).app;
+                    app.push({
+                        "key": configKeys[i],
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
+                    });
                 } else if (proxyType === "ssh") {
-
+                    let srv = processes.proxyssh(configKeys[i], configs[configKeys[i]]).app;
+                    app.push({
+                        "key": configKeys[i],
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
+                    });
                 } else if (proxyType === "ftp") {
-
+                    let srv = processes.proxyftp(configKeys[i], configs[configKeys[i]]).app;
+                    app.push({
+                        "key": configKeys[i],
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
+                    });
+                } else if (proxyType === "sftp") {
+                    let srv = processes.proxysftp(configKeys[i], configs[configKeys[i]]).app;
+                    app.push({
+                        "key": configKeys[i],
+                        "value": srv,
+                        "server": srv.listen(configs[configKeys[i]].port, configs[configKeys[i]].host)
+                    });
                 }
             }
 
